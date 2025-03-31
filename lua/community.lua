@@ -8,7 +8,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.proto" },
   -- import/override with your plugins folder
-  { import = "astrocommunity.completion.codeium-nvim" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.pack.php" },
