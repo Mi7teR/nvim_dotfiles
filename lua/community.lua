@@ -21,5 +21,7 @@ return {
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
   -- import/override with your plugins folder
 }
