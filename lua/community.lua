@@ -23,5 +23,6 @@ return {
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
+  { import = "astrocommunity.git.blame-nvim" },
   -- import/override with your plugins folder
 }
