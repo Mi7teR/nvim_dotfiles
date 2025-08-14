@@ -1,7 +1,7 @@
 
 -- colors/cursor_dark_midnight.lua
--- Native Neovim colorscheme (callable via :colorscheme cursor_dark_midnight)
--- Place this file in ~/.config/nvim/colors/
+-- Place in ~/.config/nvim/colors/
+-- Load with :colorscheme cursor_dark_midnight
 
 vim.g.colors_name = "cursor_dark_midnight"
 
@@ -34,7 +34,7 @@ local function link(from, to)
   vim.api.nvim_set_hl(0, from, { link = to, default = false })
 end
 
--- Base/UI
+-- Base UI
 hl("Normal",            { fg = p.fg,      bg = p.bg })
 hl("NormalFloat",       { fg = p.fg,      bg = p.bg_deep })
 hl("FloatBorder",       { fg = p.blue,    bg = p.bg_deep })
@@ -58,8 +58,6 @@ hl("TabLine",           { fg = "#98a0b3", bg = p.bg_deep })
 hl("TabLineSel",        { fg = p.fg,      bg = p.bg })
 hl("TabLineFill",       { bg = p.bg_deep })
 hl("VertSplit",         { fg = p.border })
-
--- Comments
 hl("Comment",           { fg = p.cmnt, italic = true })
 
 -- Diagnostics
@@ -71,6 +69,10 @@ hl("DiagnosticError",   { fg = p.red })
 hl("DiagnosticWarn",    { fg = p.yellow })
 hl("DiagnosticInfo",    { fg = p.blue })
 hl("DiagnosticHint",    { fg = p.hint })
+hl("DiagnosticVirtualTextError", { fg = p.red,    bg = "#3a2f33" })
+hl("DiagnosticVirtualTextWarn",  { fg = p.yellow, bg = "#3a352f" })
+hl("DiagnosticVirtualTextInfo",  { fg = p.blue,   bg = "#2f3540" })
+hl("DiagnosticVirtualTextHint",  { fg = p.hint,   bg = "#2f3540" })
 
 -- Diff/Git
 hl("DiffAdd",           { bg = "#2e3a2f", fg = p.green })
@@ -80,8 +82,9 @@ hl("DiffText",          { bg = "#3a4150", fg = p.blue })
 hl("GitSignsAdd",       { fg = p.green })
 hl("GitSignsChange",    { fg = p.yellow })
 hl("GitSignsDelete",    { fg = p.red })
+hl("GitSignsCurrentLineBlame", { fg = "#6c7d8f", italic = true })
 
--- Syntax
+-- Syntax & Treesitter
 hl("Constant",          { fg = p.purple })
 hl("String",            { fg = p.green })
 hl("Number",            { fg = p.purple })
@@ -90,15 +93,68 @@ hl("Function",          { fg = p.blue })
 hl("Keyword",           { fg = p.blue2 })
 hl("Type",              { fg = p.cyan })
 hl("Identifier",        { fg = p.fg_soft })
-
--- Treesitter highlights
 hl("@comment",          { fg = p.cmnt, italic = true })
 hl("@string",           { fg = p.green })
+hl("@string.regex",     { fg = p.yellow })
+hl("@string.escape",    { fg = p.yellow })
 hl("@number",           { fg = p.purple })
 hl("@boolean",          { fg = p.purple, italic = true })
 hl("@function",         { fg = p.blue })
+hl("@function.builtin", { fg = p.blue })
+hl("@function.macro",   { fg = p.orange })
+hl("@method",           { fg = p.blue })
 hl("@keyword",          { fg = p.blue2 })
+hl("@keyword.function", { fg = p.blue2 })
+hl("@keyword.operator", { fg = p.blue2 })
 hl("@type",             { fg = p.cyan })
+hl("@type.builtin",     { fg = p.cyan })
+hl("@field",            { fg = p.fg_soft })
+hl("@property",         { fg = p.fg_soft })
+hl("@parameter",        { fg = p.fg_soft })
+hl("@variable",         { fg = p.fg_soft })
+hl("@variable.builtin", { fg = p.blue2 })
+hl("@namespace",        { fg = p.cyan })
+hl("@tag",              { fg = p.blue2 })
+hl("@tag.attribute",    { fg = p.cyan, italic = true })
+hl("@punctuation",      { fg = p.fg_soft })
+
+-- LSP semantic tokens
+link("@lsp.type.parameter", "@parameter")
+link("@lsp.type.property",  "@property")
+link("@lsp.type.variable",  "@variable")
+link("@lsp.type.namespace", "@namespace")
+
+-- Plugin: Telescope
+hl("TelescopeNormal",   { fg = p.fg_soft, bg = p.bg_deep })
+hl("TelescopeBorder",   { fg = p.blue, bg = p.bg_deep })
+hl("TelescopeSelection",{ bg = p.sel })
+hl("TelescopeMatching", { fg = p.yellow, bold = true })
+
+-- Plugin: NvimTree
+hl("NvimTreeNormal",    { fg = p.fg_soft, bg = p.bg_deep })
+hl("NvimTreeFolderName",{ fg = p.blue })
+hl("NvimTreeRootFolder",{ fg = p.blue2, bold = true })
+hl("NvimTreeOpenedFile",{ fg = p.fg, bold = true })
+hl("NvimTreeGitDirty",  { fg = p.yellow })
+hl("NvimTreeGitNew",    { fg = p.green })
+hl("NvimTreeGitDeleted",{ fg = p.red })
+
+-- Plugin: Bufferline
+hl("BufferLineBackground",   { fg = "#98a0b3", bg = p.bg_deep })
+hl("BufferLineBufferSelected",{ fg = p.fg, bg = p.bg, bold = true })
+hl("BufferLineFill",         { bg = p.bg_deep })
+
+-- Plugin: WhichKey
+hl("WhichKey",        { fg = p.blue })
+hl("WhichKeyGroup",   { fg = p.orange })
+hl("WhichKeyDesc",    { fg = p.green })
+hl("WhichKeySeparator",{ fg = p.yellow })
+hl("WhichKeyValue",   { fg = p.cmnt })
+
+-- Plugin: Indent-blankline / ibl
+hl("IndentBlanklineChar",         { fg = "#3b4048" })
+hl("IndentBlanklineContextChar",  { fg = p.blue })
+hl("IblScope",                    { fg = p.blue })
 
 -- Terminal colors
 vim.g.terminal_color_0  = "#272c36"
