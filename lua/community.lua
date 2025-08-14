@@ -9,7 +9,7 @@ return {
   { import = "astrocommunity.pack.proto" },
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.go" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.nordic-nvim" },
   { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.toml" },
